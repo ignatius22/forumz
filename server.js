@@ -12,7 +12,8 @@ const bodyParse = require('body-parser')
 
 
 
-mongoose.connect('mongodb://localhost/mainbase', {useNewUrlParser: true,useUnifiedTopology:true});
+mongoose.connect('mongodb://localhost/mainbase', {useNewUrlParser: true,
+useUnifiedTopology:true});
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -23,14 +24,18 @@ app.use(bodyParse.urlencoded({extended:false}))
 app.use(bodyParse.json())
 
 app.use(express.static(path.join('public')));
-app.use('/',postRouter)
-app.use('/',commentRouter)
-app.use('/',userRouter)
+app.use('/post',postRouter)
+app.use('/comment',commentRouter)
+app.use('/user',userRouter)
+/*
+you are using app.use('/') for 3 different routes.....
+it should be differentiated 
+*/ 
 
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
 
-const port = process.env.PORT = 3000
+const port = process.env.PORT = 3001
 
 app.listen(port, console.log(`app is running on port ${port}`))

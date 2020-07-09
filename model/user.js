@@ -1,10 +1,15 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-
+//the user is a standalone person, its people that related to him
 const userSchema = Schema({
-  _id: Schema.Types.ObjectId,
-  name: String,
-  posts: [{ type: Schema.Types.ObjectId}]
+  firstName: String,
+  lastName: String,
+  dob: Date, //means Date of Birth
+  occupation: String,
+  isAdmin:{type:Boolean, default:false}//this is static role based mgt system, not fit for big apps
+
+},{
+  timestamps: true//this will automatically add the createdAt and the updatedAt field for us
 });
 
 

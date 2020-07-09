@@ -3,9 +3,18 @@ const router = express.Router()
 const mongoose = require('mongoose');
 const Post = require('../model/post')
 
+/*
+for a forum site, 
 
-router.post('/posts',(req,res)=>{
+All posts
+Single post
+Create A Post
+Edit A Post
+Delete A Post
 
+*/ 
+
+router.post('/create_post',(req,res)=>{
 	const post = new Post({
 		_id: new mongoose.Types.ObjectId(), 
 		title: req.body.title,
