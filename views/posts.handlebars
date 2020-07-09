@@ -1,0 +1,31 @@
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg-8 col-md-10 mx-auto">
+        {{#each post}}
+          <p>
+            {{#each this}}
+
+              {{this.body}}
+            {{/each}}
+          </p>
+
+          <h2 class="section-heading">
+            {{#each this}}
+              {{this.title}}
+            {{/each}}
+
+          </h2>
+
+
+          <a href="#">
+            <img class="img-fluid" src="img/post-sample-image.jpg" alt="">
+          </a>
+
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</article>
